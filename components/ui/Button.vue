@@ -11,6 +11,10 @@ export default {
             type: String,
             default: 'plain'
         },
+        small: {
+            type: Boolean,
+            default: false
+        },
         to: {
             type: String,
             default: null
@@ -18,7 +22,7 @@ export default {
     },
     computed: {
         buttonClasses() {
-            const baseClasses = 'py-2 px-10  w-full sm:w-[340px] text-center rounded-xl text-black shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]';
+            const baseClasses = `py-2 px-4 sm:px-10  w-full sm:w-[340px] text-center rounded-xl text-black shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] ${this.small && 'max-w-[120px]'}`;
             const variants = {
                 plain: 'bg-primary hover:bg-primary-dark',
                 gradient: 'bg-gradient-to-b from-primary-light to-primary-dark hover:from-primary-dark hover:to-primary-light',

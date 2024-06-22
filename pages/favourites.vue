@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto text-center mt-12">
+    <div class="container">
         <ul class="list-disc list-inside">
             <li v-for="(joke, index) in sortedFavourites" :key="index" class="mb-4">
                 <span class="font-bold">{{ joke.date }}</span>: {{ joke.joke }}
@@ -31,10 +31,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-.container {
-    background-image: url('https://unsplash.com/photos/RmoWqDCqN2E');
-    background-size: cover;
-}
-</style>
