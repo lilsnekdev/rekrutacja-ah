@@ -2,7 +2,7 @@
     <div class="container">
         <div class="flex flex-col gap-3 sm:gap-5 min-w-full justify-center items-center">
             <div
-                class="w-full bg-white opacity-[0.7] rounded-xl p-4 min-h-[300px] flex items-center text-center relative">
+                class="w-full bg-white opacity-[0.7] rounded-xl p-4 min-h-[300px] flex items-center text-center relative max-w-[768px]">
                 <button v-if="!isFavourite && !loading" @click="saveToFavourites"
                     class="absolute top-2 right-2 opacity-[0.7] hover:opacity-[1]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6">
@@ -12,7 +12,7 @@
                 </button>
                 <div class="flex flex-col items-center justify-center min-w-[100%]">
                     <Loader v-if="loading" />
-                    <p v-else class="text-2xl mb-4">{{ joke }}</p>
+                    <p v-else class="text-2xl mb-4 max-w-sm">{{ joke }}</p>
                     <p v-if="savedMessage" class="text-green-500 mt-4 font-bold text-xl">{{ savedMessage }}</p>
                 </div>
             </div>

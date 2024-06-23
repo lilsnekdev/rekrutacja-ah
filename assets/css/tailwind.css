@@ -4,7 +4,7 @@
 
 @layer components {
   .container {
-    @apply flex items-center justify-center p-4 min-w-full;
+    @apply flex items-center justify-center px-4 py-10 sm:py-32 min-w-full;
   }
 }
 
