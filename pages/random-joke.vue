@@ -12,6 +12,7 @@
                 </button>
                 <div class="flex flex-col items-center justify-center min-w-[100%]">
                     <Loader v-if="loading" />
+                    <p v-else-if="error" class="text-red-500 text-xl font-bold">{{ error }}</p>
                     <p v-else class="text-2xl mb-4 max-w-sm">{{ joke }}</p>
                     <p v-if="savedMessage" class="text-green-500 mt-4 font-bold text-xl">{{ savedMessage }}</p>
                 </div>
@@ -38,7 +39,8 @@ export default {
             joke: '',
             savedMessage: '',
             isFavourite: false,
-            loading: true
+            loading: true,
+            error: ''
         };
     },
     async created() {
@@ -48,6 +50,7 @@ export default {
             this.checkIfFavourite();
         } catch (error) {
             console.error(error);
+            this.error = 'Wystąpił błąd podczas ładowania Chuck-a. Spróbuj ponownie później.';
         } finally {
             this.loading = false;
         }

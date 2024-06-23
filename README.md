@@ -1,69 +1,32 @@
 # rekrutacja-ah
 
-## Build Setup
+## Budowanie projektu
 
 ```bash
-# install dependencies
+# zainstaluj zależności
 $ yarn install
 
-# serve with hot reload at localhost:3000
+# uruchom serwer z hot reload na localhost:3000
 $ yarn dev
 
-# build for production and launch server
+# zbuduj projekt produkcyjny i uruchom serwer
 $ yarn build
 $ yarn start
-
-# generate static project
-$ yarn generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Notatka od autora
 
-## Special Directories
+Dodałem kilka funkcjonalności spoza pierwotnego zadania, aby dopełnić MVP projektu:
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+- loader: Dodałem loader wyświtlany podczas ładowania danych z API na stronie losowania Chuck-a, aby poprawić doświadczenie użytkownika,
+- obsługa błędów: Dodałem mechanizmy obsługi błędów w przypadku niepowodzenia zapytań API, aby użytkownik był informowany o problemach z ładowaniem Chuck-ów,
+- optymalizacja obrazów tła: W celu przyspieszenia ładowania FCP (first contentful paint) na startcie wstrzykiwany jest background w gorszej jakości. W tle ładuje się ten w wyższej jakości, po czym go zastępuje,
+- animacja przejścia tła: Zgodnie z zadaniem tło wyświetla się w dwóch położeniach (zależnie czy korzystamy z protrait czy landscape view), aby unkinąć "skakania" obrazu zastosowałem tranzycję ease-in-out,
+- reaktywość: Wszysstkie przyciski mają stany na hover, a po dodaniu Chuck-a do ulubionych wystrzeliwuje confetti (nie mogłem się oprzeć :D),
+- jeśli użytkownik ma Chuck-a w swojej kolekcji ulubionych to nie zobaczy przycisku pinezki.
 
-### `assets`
+Wykonując zadanie przyszło mi do głowy kilka funkcjonalności, które można byłoby wprowadzić w kolejnych iteracjach:
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+- dodanie strony błędu 404,
+- obsługa usuwania z ulubionych, np. wyświetlając ikonę przekreślonej pinezki przy wylosowaniu Chuck-a, który znajduje się już na liście ulubionych,
+- autoryzacja użytkowników, żeby mogli zapisywać Chuck-i w bazie danych (chociaż to już raczej nie na MVP :D).
