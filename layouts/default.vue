@@ -1,7 +1,7 @@
 <template>
     <div
         :class="{ 'layout': true, 'high-quality-portrait': isPortraitHighQualityLoaded, 'high-quality-landscape': isLandscapeHighQualityLoaded }">
-        <Nuxt class="h-[100vh] w-full" />
+        <Nuxt class="h-svh w-full" />
     </div>
 </template>
 
@@ -46,7 +46,8 @@ export default {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    min-height: 100vh;
+    min-height: 100svh;
+    height: 100svh;
     background-position: center;
     transition: background-image 1s ease-in-out;
 }
